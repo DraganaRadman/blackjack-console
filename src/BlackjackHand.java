@@ -1,36 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents a hand in a Blackjack game, which holds a collection of cards.
- */
+// Represents a hand in a Blackjack game, which holds a collection of cards
 public class BlackjackHand {
     private List<Card> hand; // List to store the cards in the hand
 
-    /**
-     * Constructor to initialize a new BlackjackHand object.
-     * Initializes the hand as an empty ArrayList.
-     */
+    // Constructor to initialize a new BlackjackHand object
+    // Initializes the hand as an empty ArrayList
     public BlackjackHand() {
         this.hand = new ArrayList<>();
     }
 
-    /**
-     * Constructor to initialize a new BlackjackHand object.
-     * Initializes the hand as an empty ArrayList.
-     */
+    // Getter to retrieve the list of cards in the hand
     public List<Card> getHand() {
         return hand;
     }
 
-    /**
-     * Calculates the total value of the cards in the hand.
-     * Aces are counted as 11 if the total is less than or equal to 10; otherwise, they are counted as 1.
-     * Face cards (Jack, Queen, King) are counted as 10.
-     * Numeric cards are counted at their face value.
-     *
-     * @return The total value of the cards in the hand.
-     */
+    // Calculates the total value of the cards in the hand.
+    // Aces are counted as 11 if the total is less than or equal to 10; otherwise, they are counted as 1.
+    // Face cards (Jack, Queen, King) are counted as 10.
+    // Numeric cards are counted at their face value.
     public int sumCards() {
         if (hand != null) {
             int total = 0;
@@ -52,10 +41,7 @@ public class BlackjackHand {
         return 0;
     }
 
-    /**
-     * Prints out the cards in the hand.
-     * Each card is separated by a space.
-     */
+    // Prints out the cards in the hand.
     public void printCards() {
         for (Card c : this.hand) {
             System.out.print(c + " ");
