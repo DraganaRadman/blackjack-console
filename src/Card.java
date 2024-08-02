@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/ Represents a playing card in a standard deck, defined by its suit and face value
+// Represents a playing card in a standard deck, defined by its suit and face value
 // Uses Java 14+ record feature for immutability
 public record Card(Suit suit, String face) {
 
