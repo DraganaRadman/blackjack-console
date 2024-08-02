@@ -1,35 +1,24 @@
 import java.util.*;
 
-/**
- * Represents a Blackjack game where a player can interactively play against the dealer.
- */
+// Represents a Blackjack game where a player can interactively play against the dealer.
 public class BlackjackGame {
     private int bank;
     private List<Card> deck;
     private Scanner scanner;
 
-    /**
-     * Constructs a Blackjack game with a default bank balance of $1000 and a standard deck of cards.
-     */
+    // Constructs a Blackjack game with a default bank balance of $1000 and a standard deck of cards.
     public BlackjackGame() {
         this(1000, Card.getStandardDeck());
         startGame();
     }
 
-    /**
-     * Constructs a Blackjack game with a specified initial bank balance and a standard deck of cards.
-     * @param bank Initial bank balance of the player
-     */
+    // Constructs a Blackjack game with a specified initial bank balance and a standard deck of cards.
     public BlackjackGame(int bank) {
         this(bank, Card.getStandardDeck());
         startGame();
     }
 
-    /**
-     * Constructs a Blackjack game with a specified initial bank balance and deck of cards.
-     * @param bank Initial bank balance of the player
-     * @param deck Deck of cards to be used in the game
-     */
+    // Constructs a Blackjack game with a specified initial bank balance and deck of cards.
     public BlackjackGame(int bank, List<Card> deck) {
         this.bank = bank;
         this.deck = new ArrayList<>(deck);
@@ -37,11 +26,11 @@ public class BlackjackGame {
         startGame();
     }
 
-    /**
-     * Starts the Blackjack game by displaying the welcome message and managing user input to start or quit the game.
-     * This method serves as the entry point for the game, prompting the user to either play or quit.
-     * It loops indefinitely until the user chooses to quit the game, ensuring continuous gameplay.
-     */
+    /*
+      Starts the Blackjack game by displaying the welcome message and managing user input to start or quit the game.
+      This method serves as the entry point for the game, prompting the user to either play or quit.
+      It loops indefinitely until the user chooses to quit the game, ensuring continuous gameplay.
+     */    
     private void startGame() {
 
         displayWelcomeMessage();
@@ -60,18 +49,16 @@ public class BlackjackGame {
         }
     }
 
-    /**
-     * Displays the welcome message for the Blackjack game.
-     */
+    // Displays the welcome message for the Blackjack game.
     private void displayWelcomeMessage() {
         System.out.println();
         System.out.printf("%28s \n%s\n", "-- Welcome to Blackjack Game --", "-".repeat(31));
     }
 
-    /**
-     * Manages the main gameplay loop of Blackjack, including betting, rounds, and bank calculations.
-     * This method controls the flow of the game after it has been initialized.
-     * It loops until the player chooses to quit or runs out of money.
+    /*
+      Manages the main gameplay loop of Blackjack, including betting, rounds, and bank calculations.
+      This method controls the flow of the game after it has been initialized.
+      It loops until the player chooses to quit or runs out of money.
      */
     private void playBlackjack() {
         int currentGameBank = bank;
@@ -122,10 +109,9 @@ public class BlackjackGame {
         }
     }
 
-    /**
-     * Plays a single round of Blackjack, including dealing cards, player and dealer turns, and determining the winner.
-     * @param deck Deck of cards to be used in the round
-     * @return Result of the round (0 for tie, 1 for dealer win, 2 for player win)
+    /*
+      Plays a single round of Blackjack, including dealing cards, player and dealer turns, and determining the winner.      
+      Returns 0 for tie, 1 for dealer win, 2 for player win.
      */
     private int playRound(List<Card> deck) {
 
@@ -282,14 +268,7 @@ public class BlackjackGame {
         }
     }
 
-    /**
-     * Deals initial cards to the player and dealer from the deck.
-     * Two cards are dealt to each, alternating between player and dealer.
-     *
-     * @param playerHand The player's hand to which cards are dealt.
-     * @param dealerHand The dealer's hand to which cards are dealt.
-     * @param deck The deck of cards from which to deal.
-     */
+    // Deals initial cards to the player and dealer from the deck
     private void dealInitialCards(BlackjackHand playerHand, BlackjackHand dealerHand, List<Card> deck) {
         // Deal two cards to the player
         for (int i = 0; i < 2; i++) {
@@ -306,33 +285,18 @@ public class BlackjackGame {
         }
     }
 
-    /**
-     * Checks if the given hand has a Blackjack (a total of 21).
-     *
-     * @param hand The hand to check for Blackjack.
-     * @return True if the hand has a Blackjack, false otherwise.
-     */
+    // Checks if the given hand has a Blackjack (a total of 21).
     private static boolean hasBlackjack(BlackjackHand hand) {
         return hand.sumCards() == 21;
     }
 
-    /**
-     * Checks if the given hand is busted (has a total exceeding 21).
-     *
-     * @param hand The hand to check for bust.
-     * @return True if the hand is busted, false otherwise.
-     */
+    // Checks if the given hand is busted (has a total exceeding 21).
     private static boolean isBusted(BlackjackHand hand) {
         return hand.sumCards() > 21;
     }
-
-    /**
-     * Retrieves a random card from the given deck.
-     * If the deck is empty, it reloads it with a standard deck and shuffles.
-     *
-     * @param deck The deck of cards from which to retrieve a random card.
-     * @return A random card from the deck.
-     */
+    
+    // Retrieves a random card from the given deck
+    // If the deck is empty, it reloads it with a standard deck and shuffles.
     public static Card getRandomCard(List<Card> deck) {
         if (deck.isEmpty()) {
             reloadDeck(deck);
@@ -341,13 +305,8 @@ public class BlackjackGame {
         return deck.get(r.nextInt(deck.size()));
     }
 
-    /**
-     * Reloads the given deck if it is empty.
-     * A standard deck of cards is added to the deck and shuffled.
-     *
-     * @param deck The deck to reload if empty.
-     * @return True if the deck was reloaded, false otherwise.
-     */
+    // Reloads the given deck if it is empty.
+    // A standard deck of cards is added to the deck and shuffled.
     public static boolean reloadDeck(List<Card> deck) {
         if (deck.isEmpty()) {
             deck.addAll(Card.getStandardDeck());
