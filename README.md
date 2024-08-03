@@ -1,6 +1,6 @@
 ## Blackjack Console Game
 
-A Java-based console version of the classic card game Blackjack.
+A Java-based console version of the classic card game Blackjack, built using Java 17.
 
 
 **Features:**
@@ -22,6 +22,8 @@ A Java-based console version of the classic card game Blackjack.
 * BlackjackGame class: Houses the game logic.
 * BlackjackHand class: Manages and displays player's and dealer's cards.
 * Card class: Represents individual cards in the deck.
+
+![BlackjackConsoleDiagram](https://github.com/user-attachments/assets/a23faac7-b875-4b22-953a-3554a57b392b)
 
 
 **How to Run:**
